@@ -1,0 +1,209 @@
+/**
+ * Name: Jahsiyah Varona
+ * Date: 04.18.2025
+ * CSC 372-01
+ *
+ * Custom styles for Jokebook.
+ */
+
+ body {
+    background-color: #f8f9fa;
+    font-family: "Montserrat", sans-serif;
+  }
+  
+  header {
+    background-color: #ffffff;
+  }
+  
+  h1,
+  h2 {
+    color: #333;
+  }
+  
+  #random-joke .card-body p {
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+  }
+  
+  /* Joke‑card basics */
+  .joke-card {
+    border-radius: 0.75rem;
+    transition: transform 0.2s, box-shadow 0.2s ease;
+  }
+  .joke-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Button group */
+  .btn-group .btn {
+    text-transform: capitalize;
+  }
+  
+  /* Form labels */
+  .form-label {
+    font-weight: 500;
+  }
+  
+  /* Animated gradient header */
+  @keyframes gradientBG {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  .bg-gradient-primary {
+    background: linear-gradient(-45deg, #007bff, #6610f2, #e83e8c, #fd7e14);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+  }
+  
+  /* Spinner overlay */
+  #loading-spinner {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+    z-index: 2000;
+  }
+  
+  /* Back‑to‑top button */
+  #back-to-top {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    display: none;
+    border-radius: 50%;
+    padding: 0.5rem 0.6rem;
+    z-index: 1500;
+  }
+  
+  /* Input‑group clean‑up */
+  .input-group-text {
+    background: transparent;
+    border-right: none;
+  }
+  
+  /* =========================
+     Enhanced Dark‑Mode Styles
+     ========================= */
+  body.dark-mode {
+    /* palette */
+    --bg-primary: #121212;
+    --bg-secondary: #1e1e1e;
+    --text-primary: #e0e0e0;
+    --text-secondary: #aaaaaa;
+    --accent: #4dabf7;
+    --card-bg: #1f1f1f;
+    --nav-bg: #181818;
+    --footer-bg: #181818;
+    --btn-bg: #2e2e2e;
+    --btn-border: #3e3e3e;
+    --input-bg: #2a2a2a;
+    --input-border: #444444;
+    --gradient-start: #292929;
+    --gradient-end: #383838;
+  
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+  }
+  
+  /* Navbar & Header */
+  body.dark-mode .navbar {
+    background: var(--nav-bg) !important;
+  }
+  body.dark-mode header,
+  body.dark-mode .bg-gradient-primary {
+    background: linear-gradient(
+      135deg,
+      var(--gradient-start),
+      var(--gradient-end)
+    ) !important;
+  }
+  
+  /* Cards */
+  body.dark-mode .card {
+    background-color: var(--card-bg);
+    color: var(--text-primary);
+    border: 1px solid #333;
+  }
+  
+  /* Buttons */
+  body.dark-mode .btn {
+    background-color: var(--btn-bg) !important;
+    border-color: var(--btn-border) !important;
+    color: var(--text-primary) !important;
+  }
+  body.dark-mode .btn-outline-primary {
+    color: var(--accent) !important;
+    border-color: var(--accent) !important;
+  }
+  body.dark-mode .btn-outline-primary:hover {
+    background-color: var(--accent) !important;
+    color: #121212 !important;
+  }
+  
+  /* Inputs & Selects */
+  body.dark-mode .form-control,
+  body.dark-mode .form-select {
+    background-color: var(--input-bg);
+    border: 1px solid var(--input-border);
+    color: var(--text-primary);
+  }
+  body.dark-mode .form-control::placeholder,
+  body.dark-mode .form-select option {
+    color: var(--text-secondary);
+  }
+  
+  /* Links */
+  body.dark-mode a,
+  body.dark-mode .nav-link {
+    color: var(--accent) !important;
+  }
+  body.dark-mode a:hover,
+  body.dark-mode .nav-link:hover {
+    color: #fff !important;
+  }
+  
+  /* Footer */
+  body.dark-mode footer {
+    background-color: var(--footer-bg);
+    color: var(--text-secondary);
+  }
+  
+  /* Spinner */
+  body.dark-mode .spinner-border {
+    color: var(--accent);
+  }
+  
+  /* Back‑to‑top button */
+  body.dark-mode #back-to-top {
+    background-color: var(--accent);
+    color: #121212;
+  }
+  
+  /* Input‑group text */
+  body.dark-mode .input-group-text {
+    background-color: var(--input-bg);
+    border: 1px solid var(--input-border);
+    color: var(--accent);
+  }
+  
+  /* Scrollbar */
+  body.dark-mode::-webkit-scrollbar {
+    width: 8px;
+  }
+  body.dark-mode::-webkit-scrollbar-thumb {
+    background-color: var(--btn-border);
+    border-radius: 4px;
+  }
+  body.dark-mode::-webkit-scrollbar-track {
+    background: var(--bg-secondary);
+  }
+  

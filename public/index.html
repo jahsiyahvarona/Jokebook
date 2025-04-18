@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<!--
+  Name: Jahsiyah Varona
+  Date: 04.18.2025
+  CSC 372-01
+
+  Jokebook landing page with Bootstrap, Icons, dark‑mode,
+  spinner, back‑to‑top, and cool UI touches.
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Jokebook</title>
+
+  <!-- Google Font -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Bootstrap CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+
+  <!-- Bootstrap Icons -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    rel="stylesheet"
+  />
+
+  <!-- Custom styles -->
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body class="bg-light" style="font-family:'Montserrat',sans-serif;">
+
+  <!-- SPINNER -->
+  <div id="loading-spinner" class="spinner-border text-primary" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-gradient-primary">
+    <div class="container">
+      <a class="navbar-brand" href="#">Jokebook</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navMenu"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto align-items-center">
+          <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#categories-section">Categories</a></li>
+          <li class="nav-item"><a class="nav-link" href="#add-joke-section">Add Joke</a></li>
+          <li class="nav-item">
+            <button id="theme-toggle" class="btn btn-outline-light ms-3" title="Toggle Dark Mode">
+              <i class="bi bi-moon-fill"></i>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="py-5 text-white bg-gradient-primary mb-5 text-center">
+    <div class="container">
+      <h1 class="display-4">Welcome to Jokebook</h1>
+      <p class="lead">A curated collection of laughs at your fingertips.</p>
+      <button id="new-random-button" class="btn btn-outline-light btn-lg mt-3">
+        <i class="bi bi-emoji-laughing-fill me-2"></i>Surprise Me
+      </button>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main class="container">
+
+    <!-- RANDOM JOKE -->
+    <section id="random-joke-section" class="mb-5">
+      <div id="random-joke" class="card shadow-sm mb-3">
+        <div class="card-body"></div>
+      </div>
+    </section>
+
+    <!-- CATEGORIES & SEARCH -->
+    <section id="categories-section" class="mb-5">
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2>Categories</h2>
+        <button id="load-categories" class="btn btn-outline-primary">
+          <i class="bi bi-list-ul me-1"></i>Load Categories
+        </button>
+      </div>
+      <div id="categories-list" class="btn-group flex-wrap mb-4" role="group"></div>
+
+      <form id="search-form" class="input-group mb-4">
+        <span class="input-group-text"><i class="bi bi-search"></i></span>
+        <input
+          type="text"
+          id="search-input"
+          class="form-control"
+          placeholder="Enter exact category"
+        />
+        <button class="btn btn-primary" type="submit">
+          <i class="bi bi-arrow-right-circle"></i>
+        </button>
+      </form>
+
+      <h5>Showing: <span id="current-category" class="text-primary">None</span></h5>
+      <div id="jokes-list" class="row row-cols-1 row-cols-md-2 g-4 mt-3"></div>
+    </section>
+
+    <!-- ADD JOKE -->
+    <section id="add-joke-section" class="mb-5">
+      <h2 class="mb-3">Add a New Joke</h2>
+      <form id="add-joke-form" class="row g-3">
+
+        <div class="col-md-4 input-group">
+          <span class="input-group-text"><i class="bi bi-tags-fill"></i></span>
+          <select id="add-category" name="category" class="form-select" required>
+            <option value="" disabled selected>Select category</option>
+          </select>
+        </div>
+
+        <div class="col-md-4 input-group">
+          <span class="input-group-text"><i class="bi bi-chat-left-text-fill"></i></span>
+          <input
+            type="text"
+            id="add-setup"
+            name="setup"
+            class="form-control"
+            placeholder="Joke setup"
+            required
+          />
+        </div>
+
+        <div class="col-md-4 input-group">
+          <span class="input-group-text"><i class="bi bi-lightbulb-fill"></i></span>
+          <input
+            type="text"
+            id="add-delivery"
+            name="delivery"
+            class="form-control"
+            placeholder="Joke punchline"
+            required
+          />
+        </div>
+
+        <div class="col-12 text-end">
+          <button type="submit" class="btn btn-success">
+            <i class="bi bi-plus-circle me-1"></i>Add Joke
+          </button>
+        </div>
+      </form>
+    </section>
+
+  </main>
+
+  <!-- BACK TO TOP -->
+  <button id="back-to-top" class="btn btn-primary">
+    <i class="bi bi-arrow-up-circle-fill"></i>
+  </button>
+
+  <!-- FOOTER -->
+  <footer class="py-4 bg-white border-top text-center">
+    <div class="container">
+      <p class="mb-0 text-muted">&copy; 2025 Jokebook</p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS Bundle -->
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+  ></script>
+  <!-- Main JS -->
+  <script src="js/main.js"></script>
+</body>
+</html>
